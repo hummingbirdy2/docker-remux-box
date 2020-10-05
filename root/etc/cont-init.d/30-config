@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+# permissions
+chown -R abc:abc \
+	/app \
+	/raws
+chmod +x \
+	/switch-user.sh

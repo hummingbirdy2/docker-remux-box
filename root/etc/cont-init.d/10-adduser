@@ -1,0 +1,52 @@
+#!/usr/bin/with-contenv bash
+
+PUID=${PUID:-911}
+PGID=${PGID:-911}
+
+groupmod -o -g "$PGID" abc
+usermod -o -u "$PUID" abc
+
+echo '
+------------------------------------------------------------------------------------------------
+
+
+RRRRRRRRRRRRRR.  EEEEEEEEEEEEEEEEEMMMMMMMMMM\/MMMMMMMMMMUUUUUUUUUUUUUUUUUXXXXXXXXXXXXXXXXXXX.
+RR      | `RRRRR.EE      |      EEMM      |\MM/|      MMUU      |      UUXX      |      XXXXX
+RR      |   `RRRREE      |      EEMM      | `´ |      MMUU      |      UUXX      |      XXXXX
+RR      |     `RREE      |      EEMM      |    |      MMUU      |      UUXX      |      XXXXX
+RR      |      RREE      EEEEEEEEEMM      |    |      MMUU      |      UUXX      |      XXXXX
+RR      |     ´RREE      EEEEEEEEEMM      M.  .M      MMUU      |      UUXXX`    |    ´XXXXXX
+RR      |   .RRRREE      |      EEMM      MM..MM      MMUU      |      UUXXXXX`  |  ´XXXXX´
+RR      |¯RRRRRR´EE      |      EEMM      MMM MM      MMUU      |      UUXXXXX.¯ | ¯.XXXX´
+RR      | `RRRR´ EE      EEEEEEEEEMM      MMM MM      MMUU      |      UUXXX´    |    `XX.
+RR      |  `RRR  EE      EEEEEEEEEMM      MMM MM      MMUU      |      UUXX´     |     `XX.
+RR      |   `RRR EE      |      EEMM      MMM MM      MMUU.     |     .UUXX      |      XXXX.
+RR      |    `RRREE      |      EEMM      MMM MM      MMUUU.    |    .UUUXX      |      XXXXX
+RR      |     `RREE      |      EEMM      MMM MM      MMUUUUÙùu.|.uúÚUUUUXX      |      XXXXX
+RRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEMMMMMMMMMMM MMMMMMMMMMUUUU`UUUUUUUUUUUUXXXXXXXXXXXXXXXXXXXX
+`RRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEMMMMMMMMMM  `MMMMMMMMMUUU  `UUUUUUUU´ `XXXXXXXXXXXXXXXXXXX
+
+    Author   : Hummingbirdy the Second
+    URL      : https://github.com/hummingbirdy2/docker-remux-box
+    Based on : lsiobase/ubuntu:focal (thanks !)
+
+------------------------------------------------------------------------------------------------'
+
+if [[ -f /donate.txt ]]; then
+    echo '
+To support the app dev(s) visit:'
+    cat /donate.txt
+fi
+echo '
+To support LSIO projects visit:
+https://www.linuxserver.io/donate/'
+
+echo '
+-------------------------------------
+GID/UID
+-------------------------------------'
+echo "
+User uid:    $(id -u abc)
+User gid:    $(id -g abc)
+-------------------------------------
+"
