@@ -6,14 +6,16 @@ An All-in-One docker container to REMUX Blu-Ray based on [lsiobase/ubuntu:focal]
 
 - `bdinfo` : [BDInfoCLI-ng (fork by zoffline)](https://github.com/zoffline/BDInfoCLI-ng) running with `mono`.
 - `eac3to` : [eac3to](https://forum.doom9.org/showthread.php?t=125966) running with `wine` (works most of the time, but some issues can appear due wine).
+  - `libFLAC` = [FLAC](https://xiph.org/flac/) (I'll try to keep libFLAC up-to-date).
 - `mkvmerge`, `mkvinfo`, `mkvextract`, `mkvpropedit` : [mkvtoolnix](https://mkvtoolnix.download/).
 - `mediainfo` : [mediainfo](https://mediaarea.net/en/MediaInfo).
 - `ffmpeg` : [ffmpeg](https://ffmpeg.org/).
 - `sox` : [sox](http://sox.sourceforge.net/).
 
-## Limitation
+## Limitations
 
-:warning: eac3to had some strange issues running trough wine (only way to run it on linux without VM). So be particularly careful about his logs.
+- `eac3to` had some strange issues running trough `wine` (only way to run it on linux without VM). So be particularly careful about his logs. :warning:
+- `bdinfo` or `eac3to` can't be use on .iso file
 
 ## Usage
 
@@ -56,7 +58,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 
 ## Known Issues
 
-### 2 wine error appear at the launch of eac3to
+### 2 wine errors appear at the launch of eac3to
 
 ```log
 0009:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
