@@ -13,9 +13,7 @@ ARG TZ=UTC
 
 # ===========================
 # Install Mono
-# home: https://www.mono-project.com/
 # version: https://www.mono-project.com/download/stable/
-# install: https://www.mono-project.com/download/stable/#download-lin
 
 ARG MONO_VERSION=6.10.0.104
 
@@ -41,9 +39,7 @@ RUN echo '\n'"MONO: Install necessary packages" && \
 
 # ===========================
 # Install Wine
-# home: https://www.winehq.org/
 # version: https://www.winehq.org/
-# install: https://wiki.winehq.org/Ubuntu
 
 ARG WINE_VERSION=5.0.2
 ARG WINE_PACKAGE_VERSION=${WINE_VERSION}~focal
@@ -71,7 +67,6 @@ RUN echo '\n'"WINE: Install necessary packages" && \
 
 # ===========================
 # Install BDInfoCLI-ng (fork by zoffline)
-# home: https://github.com/zoffline/BDInfoCLI-ng
 # version: https://github.com/zoffline/BDInfoCLI-ng/tree/UHD_Support_CLI/prebuilt
 
 ARG BDINFOCLI_VERSION=0.7.5.5
@@ -94,9 +89,7 @@ RUN echo '\n'"BDINFOCLI: Install necessary packages" && \
 
 # ===========================
 # Install eac3to
-# home: https://forum.doom9.org/showthread.php?t=125966
 # version: https://forum.doom9.org/showthread.php?t=125966
-# flac home: https://xiph.org/flac/
 # flac version: https://xiph.org/flac/news.html
 
 ARG EAC3TO_ZIP_URL=http://madshi.net/eac3to.zip
@@ -128,9 +121,7 @@ RUN echo '\n'"EAC3TO: Install necessary packages" && \
 
 # ===========================
 # Install mkvtoolnix (latest)
-# home: https://mkvtoolnix.download/
 # version: https://mkvtoolnix.download/doc/NEWS.md
-# install: https://mkvtoolnix.download/downloads.html#ubuntu
 
 RUN echo '\n'"MKVTOOLNIX: Install necessary packages" && \
   apt-get update && \
@@ -149,9 +140,7 @@ RUN echo '\n'"MKVTOOLNIX: Install necessary packages" && \
 
 # ===========================
 # Install mediainfo (latest)
-# home: https://mediaarea.net/en/MediaInfo
 # version: https://mediaarea.net/en/MediaInfo
-# install: https://mediaarea.net/en/MediaInfo/Download/Ubuntu
 
 RUN echo '\n'"MEDIAINFO: Install necessary packages" && \
   apt-get update && \
