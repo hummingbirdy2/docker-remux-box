@@ -6,7 +6,7 @@ An All-in-One docker container to REMUX Blu-Ray based on [lsiobase/ubuntu:focal]
 
 - `bdinfo` : [BDInfoCLI-ng (fork by zoffline)](https://github.com/zoffline/BDInfoCLI-ng) running with `mono`.
 - `eac3to` : [eac3to](https://forum.doom9.org/showthread.php?t=125966) running with `wine` (works most of the time, but some issues can appear due wine).
-  - `libFLAC` = [FLAC](https://xiph.org/flac/) (I'll try to keep libFLAC up-to-date).
+  - `libFLAC` : [FLAC](https://xiph.org/flac/) (I'll try to keep libFLAC up-to-date).
 - `mkvmerge`, `mkvinfo`, `mkvextract`, `mkvpropedit` : [mkvtoolnix](https://mkvtoolnix.download/).
 - `mediainfo` : [mediainfo](https://mediaarea.net/en/MediaInfo).
 - `ffmpeg` : [ffmpeg](https://ffmpeg.org/).
@@ -14,8 +14,8 @@ An All-in-One docker container to REMUX Blu-Ray based on [lsiobase/ubuntu:focal]
 
 ## Limitations
 
-- `eac3to` had some strange issues running trough `wine` (only way to run it on linux without VM). So be particularly careful about his logs. :warning:
-- `bdinfo` or `eac3to` can't be use on .iso file
+- Occasionally `eac3to` had strange issues when it's running trough `wine` (only way to run it on linux without VM). So be particularly careful about his logs. :warning:
+- `bdinfo` or `eac3to` can't be use on .iso files.
 
 ## Usage
 
@@ -27,8 +27,10 @@ docker run -it --rm \
   -e PGID=1000 \
   -e TZ=Europe/London \
   -v <path to raws>:/raws \
-  hummingbirdy2/remux-box /switch-user.sh
+  hummingbirdy2/remux-box bash /switch-user.sh
 ```
+> `/switch-user.sh` is just a script to switch to the defaut user (need `PUID` and `PGID`). If you prefer to be root, run `bash` alone.
+
 Move to your working directory.
 ```shell
 cd /raws
