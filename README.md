@@ -2,6 +2,12 @@
 
 An All-in-One docker container to REMUX Blu-Ray based on [lsiobase/ubuntu:focal](https://github.com/linuxserver/docker-baseimage-ubuntu).
 
+[![badge docker hub link][badge-docker-hub]](https://hub.docker.com/r/hummingbirdy2/remux-box)
+[![badge docker size][badge-docker-size]](https://hub.docker.com/r/hummingbirdy2/remux-box)
+
+[![badge github link][badge-github]](https://github.com/hummingbirdy2/docker-remux-box)
+[![badge licence][badge-license]](https://github.com/hummingbirdy2/docker-remux-box)
+
 ## Embedded tools
 
 - `bdinfo` : [BDInfoCLI-ng (fork by zoffline)](https://github.com/zoffline/BDInfoCLI-ng) running with `mono`.
@@ -42,7 +48,7 @@ cd /raws
 | :----: | --- |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
-| `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
+| `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. [Time Zone list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) |
 | `-v /raws` | Path to works with raws. |
 
 ### User / Group Identifiers
@@ -69,3 +75,9 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 
 Don't worry about it, eac3to tried to create a window and it's impossible in this configuration.
 By the way, if anyone know the magic trick to avoid this error feel free to open an issue. And yes I try `wineconsole` and `WINEDEBUG=-all` is not a solution :wink:
+
+<!-- badges images -->
+[badge-docker-hub]: https://badgen.net/badge/link/hummingbirdy2%2Fremux-box?label&icon=docker
+[badge-docker-size]: https://badgen.net/docker/size/hummingbirdy2/remux-box?icon=docker&label=Image%20Size
+[badge-github]: https://badgen.net/badge/link/hummingbirdy2%2Fdocker-remux-box?label&icon=github
+[badge-license]: https://badgen.net/github/license/hummingbirdy2/docker-remux-box?icon=github
