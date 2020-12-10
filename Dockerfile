@@ -2,7 +2,9 @@ FROM lsiobase/ubuntu:focal
 
 # ===========================
 # Container labels
-LABEL maintainer="Hummingbird the Second"
+LABEL maintainer="Hummingbird the Second" \
+      name="remux-box" \
+      description="An All-in-One container to REMUX Blu-Ray"
 
 # ===========================
 # Environment Settings
