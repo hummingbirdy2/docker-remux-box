@@ -43,7 +43,7 @@ RUN echo '\n'"MONO: Install necessary packages" && \
 # Install Wine
 # version: https://www.winehq.org/
 
-ARG WINE_VERSION=5.0.2
+ARG WINE_VERSION=5.0.3
 ARG WINE_PACKAGE_VERSION=${WINE_VERSION}~focal
 
 RUN echo '\n'"WINE: Install necessary packages" && \
