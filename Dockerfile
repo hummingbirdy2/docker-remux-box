@@ -119,7 +119,10 @@ RUN echo '\n'"EAC3TO: Install necessary packages" && \
   rm -rf /var/lib/apt/lists/* && \
   \
   echo '\n'"EAC3TO: Remove audios to avoid ALSA lib error" && \
-  rm -v /app/eac3to/*.wav
+  rm -v /app/eac3to/*.wav && \
+  \
+  echo '\n'"EAC3TO: Remove to update libdcadec.dll" && \
+  rm -v /app/eac3to/libdcadec.dll
 
 # ===========================
 # Install mkvtoolnix (latest)
