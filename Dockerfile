@@ -17,7 +17,7 @@ ARG TZ=UTC
 # Install Mono
 # version: https://www.mono-project.com/download/stable/
 
-ARG MONO_VERSION=6.10.0.104
+ARG MONO_VERSION=6.12.0.107
 
 RUN echo '\n'"MONO: Install necessary packages" && \
   apt-get update && \
