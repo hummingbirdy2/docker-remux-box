@@ -43,8 +43,8 @@ RUN echo '\n'"MONO: Install necessary packages" && \
 # Install Wine
 # version: https://www.winehq.org/
 
-ARG WINE_VERSION=5.0.3
-ARG WINE_PACKAGE_VERSION=${WINE_VERSION}~focal
+ARG WINE_VERSION=6.0.0
+ARG WINE_PACKAGE_VERSION=${WINE_VERSION}~focal-1
 
 RUN echo '\n'"WINE: Install necessary packages" && \
   apt-get update && \
