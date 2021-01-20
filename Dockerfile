@@ -121,7 +121,7 @@ RUN echo '\n'"EAC3TO: Install necessary packages" && \
   echo '\n'"EAC3TO: Remove audios to avoid ALSA lib error" && \
   rm -v /app/eac3to/*.wav && \
   \
-  echo '\n'"EAC3TO: Remove to update libdcadec.dll" && \
+  echo '\n'"EAC3TO: Remove libdcadec.dll for update" && \
   rm -v /app/eac3to/libdcadec.dll
 
 # ===========================
