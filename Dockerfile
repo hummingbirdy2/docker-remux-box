@@ -93,6 +93,7 @@ RUN echo '\n'"BDINFOCLI: Install necessary packages" && \
 # Install eac3to
 # version: https://forum.doom9.org/showthread.php?t=125966
 # flac version: https://xiph.org/flac/news.html
+# libdcadec from: https://github.com/staxrip/staxrip
 
 ARG EAC3TO_ZIP_URL=http://madshi.net/eac3to.zip
 
@@ -104,25 +105,27 @@ RUN echo '\n'"EAC3TO: Install necessary packages" && \
   apt-get install -y --no-install-recommends unzip && \
   rm -rf /var/lib/apt/lists/* && \
   \
-  echo '\n'"EAC3TO: Download prebuild + update libFlac" && \
+  echo '\n'"EAC3TO: Download build" && \
   export ZIP="$(mktemp -d)" && \
   curl -o "$ZIP/eac3to.zip" -L "${EAC3TO_ZIP_URL}" && \
   curl -o "$ZIP/libflac.zip" -L "${LIBFLAC_ZIP_URL}" && \
   mkdir -p /app/eac3to && \
   unzip "$ZIP/eac3to.zip" -d /app/eac3to && \
+  echo '#!/bin/bash \n wine /app/eac3to/eac3to.exe "$@" && tput sgr0' > /usr/bin/eac3to && chmod +x /usr/bin/eac3to && \
+  \
+  echo '\n'"EAC3TO: Update libFlac" && \
   unzip "$ZIP/libflac.zip" -d $ZIP && \
   rm -v /app/eac3to/libFLAC.dll && \
   mv -v $ZIP/libFLAC_dynamic.dll /app/eac3to/libFLAC.dll && \
   rm -rf $ZIP && \
-  echo '#!/bin/bash \n wine /app/eac3to/eac3to.exe "$@"' > /usr/bin/eac3to && chmod +x /usr/bin/eac3to && \
   apt-get purge -y --auto-remove unzip && \
   rm -rf /var/lib/apt/lists/* && \
   \
-  echo '\n'"EAC3TO: Remove audios to avoid ALSA lib error" && \
-  rm -v /app/eac3to/*.wav && \
+  echo '\n'"EAC3TO: Remove libdcadec (replaced by a fixed version)" && \
+  rm -v /app/eac3to/libdcadec.dll && \
   \
-  echo '\n'"EAC3TO: Remove libdcadec.dll for update" && \
-  rm -v /app/eac3to/libdcadec.dll
+  echo '\n'"EAC3TO: Remove audios to avoid ALSA lib error" && \
+  rm -v /app/eac3to/*.wav
 
 # ===========================
 # Install mkvtoolnix (latest)
